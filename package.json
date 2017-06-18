@@ -1,0 +1,40 @@
+{
+  "name": "two-peaks",
+  "version": "1.0.0",
+  "description": "A project related to Twin Peaks",
+  "main": "index.html",
+  "scripts": {
+    "build": "webpack",
+    "build-prod" : "webpack --config webpack.config.prod.js",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beurkinger/TwoPeaks.git"
+  },
+  "keywords": [
+    "Twin Peaks",
+    "Two Peaks",
+    "CSS",
+    "JS",
+    "Inferno"
+  ],
+  "author": "Thibault Goehringer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beurkinger/TwoPeaks/issues"
+  },
+  "homepage": "https://github.com/beurkinger/TwoPeaks#readme",
+  "dependencies": {
+    "inferno": "^1.5.6",
+    "inferno-component": "^1.5.6"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-inferno": "^3.1.0",
+    "babel-preset-env": "^1.3.2",
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.2"
+  }
+}
