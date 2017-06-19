@@ -64,7 +64,7 @@ body {
   /*stroke: #45bf3c;*/
   /*stroke: #1cff00;*/
   stroke: #35ff1d;
-  letter-spacing: 0.75px;
+  letter-spacing: 0.7px;
   stroke-linejoin: round;
 }
 
@@ -78,7 +78,7 @@ body {
 #text1 {
   paint-order: stroke;
   alignment-baseline: middle;
-  stroke-width: 0.55px;
+  stroke-width: 0.54px;
   /*stroke-width: 0;*/
 }
 

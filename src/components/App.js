@@ -5,7 +5,7 @@ class App extends Component {
 
   constructor(props) {
 		super(props);
-    this.state = {str : "SOME CUMMIES"};
+    this.state = {str : "TWIN PEAKS"};
 	}
 
 	render () {
@@ -13,16 +13,39 @@ class App extends Component {
       <div id="app">
         <svg id="svg-box" viewBox="0 0 40 40">
           <title>Test</title>
+          <defs>
+            <filter id="blur1" x="0" y="0">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="0.022" />
+            </filter>
+            <filter id="blur2" x="0" y="0">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="0.03" />
+            </filter>
+          </defs>
           <g id="text-container">
-            <g transform="translate(0.45, 0.45)">
-                <text id="text-shadow" x="50%" y="50%">
+            <g transform="translate(0.15, 0.15)">
+                <text id="text-shadow" x="50%" y="50%" filter="url(#blur2)">
                   {this.state.str}
                 </text>
             </g>
-            <text id="text1" x="50%" y="50%">
+            <g transform="translate(0.25, 0.25)">
+                <text id="text-shadow" x="50%" y="50%" filter="url(#blur2)">
+                  {this.state.str}
+                </text>
+            </g>
+            <g transform="translate(0.35, 0.35)">
+                <text id="text-shadow" x="50%" y="50%" filter="url(#blur2)">
+                  {this.state.str}
+                </text>
+            </g>
+            <g transform="translate(0.45, 0.45)">
+                <text id="text-shadow" x="50%" y="50%" filter="url(#blur2)">
+                  {this.state.str}
+                </text>
+            </g>
+            <text id="text1" x="50%" y="50%" filter="url(#blur1)">
               {this.state.str}
             </text>
-            <text id="text2" x="50%" y="50%">
+            <text id="text2" x="50%" y="50%" filter="url(#blur1)">
               {this.state.str}
             </text>
           </g>
