@@ -14,11 +14,11 @@ class App extends Component {
         <svg id="svg-box" viewBox="0 0 40 40">
           <title>Test</title>
           <defs>
-            <filter id="blur1" x="0" y="0">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="0.022" />
+            <filter id="blur1" x="-5%" y="-5%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="0.015" />
             </filter>
-            <filter id="blur2" x="0" y="0">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="0.03" />
+            <filter id="blur2" x="-5%" y="-5%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="0.025" />
             </filter>
           </defs>
           <g id="text-container">
