@@ -33,6 +33,11 @@ const tspanStyle = {
   alignmentBaseline: 'middle'
 };
 
+//Helper functions
+const getViewBow = i => {
+	return "0 0 " + (40 + i) + " " + (40 + i);
+}
+
 const getTspan = (str, i) => {
 	const increment = 8;
 	let dy = i * increment;
@@ -43,7 +48,7 @@ const getTspan = (str, i) => {
 const Text = props => {
 	let split = props.str.split(/\r?\n/g);
 	return (
-	  <svg viewBox="0 0 40 40" style={boxStyle}>
+	  <svg viewBox={getViewBow(props.viewBoxMod)} style={boxStyle}>
 	    <title>Text</title>
 	    <defs>
 	      <filter id="blur1" x="-5%" y="-5%">

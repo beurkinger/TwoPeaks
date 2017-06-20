@@ -13,19 +13,35 @@ class App extends Component {
 
   constructor(props) {
 		super(props);
-    this.state = {str : "TWIN PEAKS"};
+    this.state = {str : "TWIN PEAKS", viewBoxMod : 0};
     this.inputHandler = this.inputHandler.bind(this);
+    this.minusHandler = this.minusHandler.bind(this);
+    this.plusHandler = this.plusHandler.bind(this);
 	}
 
-  inputHandler (str) {
-    this.setState({str : str});
+  inputHandler (e) {
+    this.setState({str : e.target.value});
+  }
+
+  minusHandler (e) {
+    e.preventDefault();
+    this.setState({viewBoxMod : this.state.viewBoxMod + 1});
+  }
+
+  plusHandler (e) {
+    e.preventDefault();
+    this.setState({viewBoxMod : this.state.viewBoxMod - 1});
   }
 
 	render () {
 		return (
       <div style={appStyle}>
-        <Editor str={this.state.str} handleInput={this.inputHandler} />
-        <Text str={this.state.str} />
+        <Editor str={this.state.str}
+                handleInput={this.inputHandler}
+                handleMinus={this.minusHandler}
+                handlePlus={this.plusHandler} />
+        <Text str={this.state.str}
+              viewBoxMod={this.state.viewBoxMod} />
       </div>
     );
 	}
