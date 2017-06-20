@@ -12,12 +12,32 @@ const appStyle = {
 class App extends Component {
 
   constructor(props) {
-		super(props);
-    this.state = {str : "TWIN PEAKS", viewBoxMod : 0};
+    super(props);
+    let urlStr = this.findUrlParam('str');
+    let urlSize = this.findUrlParam('size');
+    console.log(urlStr);
+    console.log(urlSize);
+    this.state = {
+      str : urlStr ? urlStr : "TWIN PEAKS",
+      viewBoxMod : urlSize ? parseInt(urlSize) : 0
+    };
     this.inputHandler = this.inputHandler.bind(this);
     this.minusHandler = this.minusHandler.bind(this);
     this.plusHandler = this.plusHandler.bind(this);
 	}
+
+  findUrlParam (paramName) {
+    let result = null;
+    let tmp = [];
+    window.location.search
+      .substr(1)
+      .split("&")
+      .forEach(function (item) {
+        tmp = item.split("=");
+        if (tmp[0] === paramName) result = decodeURIComponent(tmp[1]);
+      });
+      return result;
+  }
 
   inputHandler (e) {
     this.setState({str : e.target.value});
