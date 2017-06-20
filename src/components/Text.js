@@ -1,47 +1,69 @@
-import Inferno, { linkEvent } from 'inferno';
+import Inferno from 'inferno';
+import TextShadow from './TextShadow';
 
-const Text = (props) => {
-	return (
-    <svg id="svg-box" viewBox="0 0 40 40">
-      <title>Text</title>
-      <defs>
-        <filter id="blur1" x="-5%" y="-5%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="0.02" />
-        </filter>
-        <filter id="blur2" x="-5%" y="-5%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="0.03" />
-        </filter>
-      </defs>
-      <g id="text-container">
-        <g transform="translate(0.15, 0.15)">
-            <text id="text-shadow" x="50%" y="50%" filter="url(#blur2)">
-              {props.str}
-            </text>
-        </g>
-        <g transform="translate(0.25, 0.25)">
-            <text id="text-shadow" x="50%" y="50%" filter="url(#blur2)">
-              {props.str}
-            </text>
-        </g>
-        <g transform="translate(0.35, 0.35)">
-            <text id="text-shadow" x="50%" y="50%" filter="url(#blur2)">
-              {props.str}
-            </text>
-        </g>
-        <g transform="translate(0.45, 0.45)">
-            <text id="text-shadow" x="50%" y="50%" filter="url(#blur2)">
-              {props.str}
-            </text>
-        </g>
-        <text id="text1" x="50%" y="50%" filter="url(#blur1)">
-          {props.str}
-        </text>
-        <text id="text2" x="50%" y="50%" filter="url(#blur1)">
-          {props.str}
-        </text>
-      </g>
-    </svg>
-  );
+//Styles
+const fillColor = '#401b1a';
+const strokeColor = '#35ff1d';
+const boxStyle = {
+	width: 'auto',
+	height: 'auto',
+	maxWidth: '100%',
+	maxHeight: '100%',
+	opacity: '0.95'
+};
+const textGroupStyle = {
+  overflow: 'hidden',
+  textAnchor: 'middle',
+	fontFamily: 'ITC-Medium',
+  fontSize: '7px',
+  fill: fillColor,
+  stroke: strokeColor,
+  letterSpacing: '0.7px',
+  strokeLinejoin: 'round'
+};
+const textBackStyle = {
+  paintOrder: 'stroke',
+  strokeWidth: '0.54px'
+};
+const textFrontStyle = {
+  stroke: fillColor,
+  strokeWidth: '0.18px'
+};
+const tspanStyle = {
+  alignmentBaseline: 'middle'
+};
+
+const getTspan = (str, i) => {
+	const increment = 8;
+	let dy = i * increment;
+	return <tspan x="50%" y="50%" dy={dy} style={tspanStyle}>{str}</tspan>;
 }
+
+//Component
+const Text = props => {
+	let split = props.str.split(/\r?\n/g);
+	return (
+	  <svg viewBox="0 0 40 40" style={boxStyle}>
+	    <title>Text</title>
+	    <defs>
+	      <filter id="blur1" x="-5%" y="-5%">
+	        <feGaussianBlur in="SourceGraphic" stdDeviation="0.02" />
+	      </filter>
+	      <filter id="blur2" x="-5%" y="-5%">
+	        <feGaussianBlur in="SourceGraphic" stdDeviation="0.03" />
+	      </filter>
+	    </defs>
+	    <g style={textGroupStyle}>
+				<TextShadow tspans={split.map(getTspan)} />
+	      <text style={textBackStyle} filter="url(#blur1)">
+	        {split.map(getTspan)}
+	      </text>
+	      <text style={textFrontStyle} filter="url(#blur1)">
+	        {split.map(getTspan)}
+	      </text>
+	    </g>
+	  </svg>
+	);
+};
 
 module.exports = Text;

@@ -1,18 +1,7 @@
 @font-face {
-    font-family: ITC-Book;
-    src: url('./fonts/ITC-avant-garde-gothic-book-condensed.otf');
-}
-
-@font-face {
     font-family: ITC-Medium;
     src: url('./fonts/ITC-avant-garde-gothic-std-medium-condensed.ttf');
 }
-
-@font-face {
-    font-family: ITC-Demi;
-    src: url('./fonts/ITC-avant-garde-gothic-std-demi-condensed.otf');
-}
-
 
 * {
   border: 0; margin: 0; padding: 0; background-color: transparent;
@@ -30,70 +19,9 @@ html {
 }
 
 body, input, textarea, button, select {
-  /*font: lighter 16px Roboto, "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   line-height: 140%;
 }
 
 body {
   background: #000;
 }
-
-#app {
-  width: 100vw; height: 56vw;
-  background-color: #000;
-  background: url('../img/background.png') center center / contain no-repeat;
-
-}
-
-#editor {
-  z-index: 100;
-  position:fixed; top: 0; left: 0;
-}
-
-#svg-box {
-  width: auto; height: auto;
-  max-width: 100%; max-height: 100%;
-  opacity: 0.95;
-}
-
-#text-container {
-  overflow:hidden;
-  text-anchor: middle;
-  font-size: 7px;
-  font-family: ITC-Medium;
-  /*fill: #5E3A38;*/
-  /*fill: #472928;*/
-  /*fill: #5d3937;*/
-  fill: #442827;
-  /*stroke: #42b02e;*/
-  /*stroke: #45bf3c;*/
-  /*stroke: #1cff00;*/
-  stroke: #35ff1d;
-  letter-spacing: 0.7px;
-  stroke-linejoin: round;
-}
-
-#text-shadow {
-  alignment-baseline: middle;
-  fill: #000;
-  stroke: #000;
-  stroke-width: 0.56px;
-}
-
-#text1 {
-  paint-order: stroke;
-  alignment-baseline: middle;
-  stroke-width: 0.54px;
-  /*stroke-width: 0;*/
-}
-
-#text2 {
-  alignment-baseline: middle;
-  /*stroke: #5E3A38;*/
-  /*stroke: #472928;*/
-  /*stroke: #5d3937;*/
-  stroke: #442827;
-  stroke-width: 0.18px;
-}
-
-/*#42b02e*/

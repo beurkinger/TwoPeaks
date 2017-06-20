@@ -1,7 +1,13 @@
-import Inferno, { linkEvent } from 'inferno';
+import Inferno from 'inferno';
 import Component from 'inferno-component';
 import Editor from './Editor';
 import Text from './Text';
+
+const appStyle = {
+  width: '100vw',
+  height: '56vw',
+  background: 'url("./public/img/background.png") center center / contain no-repeat'
+};
 
 class App extends Component {
 
@@ -17,7 +23,7 @@ class App extends Component {
 
 	render () {
 		return (
-      <div id="app">
+      <div style={appStyle}>
         <Editor str={this.state.str} handleInput={this.inputHandler} />
         <Text str={this.state.str} />
       </div>
