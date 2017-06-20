@@ -1,7 +1,7 @@
 import Inferno from 'inferno';
 import Component from 'inferno-component';
 import Editor from './Editor';
-import Text from './Text';
+import SvgElt from './SvgElt';
 
 const appStyle = {
   width: '100vw',
@@ -35,12 +35,12 @@ class App extends Component {
 
 	render () {
 		return (
-      <div style={appStyle}>
+      <div style={appStyle} >
         <Editor str={this.state.str}
                 handleInput={this.inputHandler}
                 handleMinus={this.minusHandler}
                 handlePlus={this.plusHandler} />
-        <Text str={this.state.str}
+        <SvgElt str={this.state.str}
               viewBoxMod={this.state.viewBoxMod} />
       </div>
     );

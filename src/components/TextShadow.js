@@ -13,8 +13,8 @@ const textShadowGroupStyle = {
 }
 
 //Helper functions
-const getShadowLayer = tspans => (
-	<text filter="url(#blur2)">{tspans}</text>
+const getShadowLayer = textLines => (
+	<text>{textLines}</text>
 );
 
 //Component
@@ -23,7 +23,7 @@ const TextShadow = props => {
 	let shadowLayers = [];
 	for (var i = 0; i < nbLayers; i ++) {
 		let translation = 'translate(' + offset + ', ' + offset + ')';
-		shadowLayers.push(<g transform={translation}>{getShadowLayer(props.tspans)}</g>);
+		shadowLayers.push(<g transform={translation}>{getShadowLayer(props.textLines)}</g>);
 		offset += increment;
 	}
 	return <g style={textShadowGroupStyle}>{shadowLayers}</g>;
