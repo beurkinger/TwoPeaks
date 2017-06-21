@@ -20,6 +20,7 @@ html {
 
 body, input, textarea, button, select {
   line-height: 140%;
+  font-size: 12px;
 }
 
 body {

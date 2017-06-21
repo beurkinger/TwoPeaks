@@ -13,14 +13,16 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+
     let urlStr = this.findUrlParam('str');
     let urlSize = this.findUrlParam('size');
-    console.log(urlStr);
-    console.log(urlSize);
+
     this.state = {
       str : urlStr ? urlStr : "TWIN PEAKS",
-      viewBoxMod : urlSize ? parseInt(urlSize) : 0
+      viewBoxMod : urlSize ? parseInt(urlSize) : 0,
+      showEditor : true
     };
+
     this.inputHandler = this.inputHandler.bind(this);
     this.minusHandler = this.minusHandler.bind(this);
     this.plusHandler = this.plusHandler.bind(this);
@@ -39,17 +41,15 @@ class App extends Component {
       return result;
   }
 
-  inputHandler (e) {
-    this.setState({str : e.target.value});
+  inputHandler (str) {
+    this.setState({str : str});
   }
 
-  minusHandler (e) {
-    e.preventDefault();
+  minusHandler () {
     this.setState({viewBoxMod : this.state.viewBoxMod + 1});
   }
 
-  plusHandler (e) {
-    e.preventDefault();
+  plusHandler () {
     this.setState({viewBoxMod : this.state.viewBoxMod - 1});
   }
 
@@ -57,11 +57,12 @@ class App extends Component {
 		return (
       <div style={appStyle} >
         <Editor str={this.state.str}
+                viewBoxMod={this.state.viewBoxMod}
                 handleInput={this.inputHandler}
                 handleMinus={this.minusHandler}
                 handlePlus={this.plusHandler} />
         <SvgElt str={this.state.str}
-              viewBoxMod={this.state.viewBoxMod} />
+                viewBoxMod={this.state.viewBoxMod} />
       </div>
     );
 	}
